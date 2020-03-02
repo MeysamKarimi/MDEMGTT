@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NMF.Serialization</name>
+    </assembly>
+    <members>
+        <member name="M:NMF.Serialization.TypeConversion.ParseJson(System.String)">
+            <summary>
+            Parses the given string as JSON
+            </summary>
+            <param name="json">A JSON string</param>
+            <returns>If the provided string is a valid JSON object, then the result is a dictionary of the properties and provided values (which might be JSON strings themselves). Otherwise, null is returned</returns>
+        </member>
+        <member name="M:NMF.Serialization.Xmi.XmiSerializer.#ctor">
+            <summary>
+            Creates a new XmiSerializer with default settings and no preloaded types
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.Xmi.XmiSerializer.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a new XmiSerializer with default settings
+            </summary>
+            <param name="additionalTypes">Set of types to preload into the serializer</param>
+            <remarks>Types will be loaded with default settings</remarks>
+        </member>
+        <member name="M:NMF.Serialization.Xmi.XmiSerializer.#ctor(NMF.Serialization.XmlSerializationSettings)">
+            <summary>
+            Creates a new XmiSerializer with the specified settings
+            </summary>
+            <param name="settings">Serializer-settings for the serializer. Can be null or Nothing in Visual Basic. In this case, the default settings will be used.</param>
+        </member>
+        <member name="M:NMF.Serialization.Xmi.XmiSerializer.#ctor(NMF.Serialization.XmlSerializationSettings,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a new XmiSerializer with the specified settings and the given preloaded types
+            </summary>
+            <param name="additionalTypes">Set of types to load into the serializer</param>
+            <param name="settings">The settings to use for the serializer</param>
+            <remarks>The types will be loaded with the specified settings</remarks>
+        </member>
+        <member name="M:NMF.Serialization.Xmi.XmiSerializer.#ctor(NMF.Serialization.XmlSerializer)">
+            <summary>
+            Creates a new XmlSerializer and copies settings and known types from the given serializer
+            </summary>
+            <param name="parent">An XML serializer to copy settings and known type information from</param>
+        </member>
+        <member name="T:NMF.Serialization.XmlAttributeAttribute">
+            <summary>
+            Attribute to decide whether the specified property should be serialized as attribute.
+            </summary>
+            <remarks>A property can only be serialized as attribute, if the property Type supports conversion to and from string</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlAttributeAttribute.#ctor(System.Boolean)">
+            <summary>
+            Creates a XmlAttributeAttribute
+            </summary>
+            <param name="serializeAsAttribute">Value that indicates if the element should be serialized as Xml-attribute</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlAttributeAttribute.SerializeAsAttribute">
+            <summary>
+            Value that indicates whether the element should be serialized as Xml-Attribute
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlCaseType">
+            <summary>
+            Enumeration of the different case types for serialization
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.AsInput">
+            <summary>
+            No changes in characters cases
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.CamelCase">
+            <summary>
+            The first character will be converted to lower case, the remaining characters stay on their case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.PascalCase">
+            <summary>
+            The first character will be converted to upper case, the remaining characters stay on their case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.Upper">
+            <summary>
+            All characters are converted to upper case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.Lower">
+            <summary>
+            All characters are converted to lower case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.UpperInvariant">
+            <summary>
+            All characters are converted to their culture invariant upper case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.LowerInvariant">
+            <summary>
+            All characters are converted to their culture invariant lower case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.CamelCaseInvariant">
+            <summary>
+            The first character will be converted to culture invariant lower case, other characters stay on their case
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlCaseType.PascalCaseInvariant">
+            <summary>
+            The first character will be converted to culture invariant upper case, other characters stay on their case
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlConstructorAttribute">
+            <summary>
+            Defines an attribute to set the serializer to use a different constructor than the default constructor.
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlConstructorAttribute.#ctor(System.Int32)">
+            <summary>
+            Creates a new XmlConstructorAttribute to get the serializer to use a different constructor than the default constructor
+            </summary>
+            <param name="parameterCount">The amount of parameters to use</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlConstructorAttribute.ParameterCount">
+            <summary>
+            Gets the amount of constructor parameters
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlConstructorParameterAttribute">
+            <summary>
+            Defines an attribute to mark a property being used for the constructor of an object
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlConstructorParameterAttribute.#ctor(System.Int32)">
+            <summary>
+            Creates a new XmlConstructorParameterAttribute to mark a property being used for a constructor
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:NMF.Serialization.XmlConstructorParameterAttribute.Index">
+            <summary>
+            Gets the index, the property is used in the constructor
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlDefaultPropertyAttribute">
+            <summary>
+            Marks a property as default property
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlDefaultPropertyAttribute.IsDefault">
+            <summary>
+            Gets a value indicating whether this is the default property or not
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlElementNameAttribute">
+            <summary>
+            Attribute to provide the serialization name for the specified element. This persistance name can be changed by the serialization setting (various case types)
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlElementNameAttribute.#ctor(System.String)">
+            <summary>
+            Creates a XmlElementNameAttribute
+            </summary>
+            <param name="elementName">The name to use in serialization for the specified element</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlElementNameAttribute.ElementName">
+            <summary>
+            The name for serialization of the specified element
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlIdentificationMode">
+            <summary>
+            Defines states how to handle with identification of instances
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlIdentificationMode.AsNeeded">
+            <summary>
+            Let the Serializer decide
+            </summary>
+            <remarks>This will lead the serializer to write the full object on first occurence and uses of references afterwards</remarks>
+        </member>
+        <member name="F:NMF.Serialization.XmlIdentificationMode.Identifier">
+            <summary>
+            Use the identifier only
+            </summary>
+        </member>
+        <member name="F:NMF.Serialization.XmlIdentificationMode.FullObject">
+            <summary>
+            Write the full object
+            </summary>
+            <remarks>If this attribute appears somewhere else in the resulting Xml-file, be sure that every property before this one is marked to use identifiers!</remarks>
+        </member>
+        <member name="T:NMF.Serialization.XmlIdentificationModeAttribute">
+            <summary>
+            Can set the identification mode of a property
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlIdentificationModeAttribute.#ctor(NMF.Serialization.XmlIdentificationMode)">
+            <summary>
+            Creates a new XmlIdentificationModeAttribute with the given identification mode
+            </summary>
+            <param name="positionalString">The mode for identification</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlIdentifierAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new XmlIdentifierAttribute with the given identifier
+            </summary>
+            <param name="identifier">The property to identify instances for this class</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlIdentifierAttribute.Identifier">
+            <summary>
+            Gets the identifier to identify the instances of this class
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlIgnorePropertyAttribute">
+            <summary>
+            Attribute to hide a property from serialization
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlIgnorePropertyAttribute.#ctor(System.String)">
+            <summary>
+            Creates a XmlIgnorePropertyAttribute
+            </summary>
+            <param name="serializeAsAttribute">Value that indicates if the element should be serialized as Xml-attribute</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlIgnorePropertyAttribute.Property">
+            <summary>
+            Name of the property that should be hidden for serialization
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlNamespaceAttribute">
+            <summary>
+            Attribute to provide the Xml-namespace to use in Xml-serialization for the specified element
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlNamespaceAttribute.#ctor(System.String)">
+            <summary>
+            Creates a XmlNamespaceAttribute
+            </summary>
+            <param name="nameSpace">Xml-namespace to use in serialization</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlNamespaceAttribute.Namespace">
+            <summary>
+            The Xml-namespace to use in serialization in Xml
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlNamespacePrefixAttribute">
+            <summary>
+            Attribute to provide the Xml-namespace prefix to use in Xml-serialization for the specified element
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlNamespacePrefixAttribute.#ctor(System.String)">
+            <summary>
+            Creates a XmlNamespacePrefixAttribute
+            </summary>
+            <param name="nameSpacePrefix">Xml-namespace prefix to use in serialization</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlNamespacePrefixAttribute.NamespacePrefix">
+            <summary>
+            The Xml-namespace prefix to use in serialization in Xml
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlSerializationSettings">
+            <summary>
+            Class to represent the serialization settings for a XmlSerializer
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializationSettings.Default">
+            <summary>
+            Default settings used for the XmlSerializer
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializationSettings.Encoding">
+            <summary>
+            Gets or sets the encoding of the Xml file
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializationSettings.DefaultNamespace">
+            <summary>
+            Gets or sets the default location
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializationSettings.Indent">
+            <summary>
+            Indicates whether the XmlSerializer should indent new Xml elements for more readable formatting
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializationSettings.CaseSensitive">
+            <summary>
+            Indicates whether the deserialization is case sensitive
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializationSettings.NameCase">
+            <summary>
+            The strategy for converting character cases for serialization
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlSerializer">
+            <summary>
+            Class to serialize objects in a Xml-format.
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.#ctor">
+            <summary>
+            Creates a new XmlSerializer with default settings and no preloaded types
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.#ctor(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a new XmlSerializer with default settings
+            </summary>
+            <param name="additionalTypes">Set of types to preload into the serializer</param>
+            <remarks>Types will be loaded with default settings</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.#ctor(NMF.Serialization.XmlSerializationSettings)">
+            <summary>
+            Creates a new XmlSerializer with the specified settings
+            </summary>
+            <param name="settings">Serializer-settings for the serializer. Can be null or Nothing in Visual Basic. In this case, the default settings will be used.</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.#ctor(NMF.Serialization.XmlSerializationSettings,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a new XmlSerializer with the specified settings and the given preloaded types
+            </summary>
+            <param name="additionalTypes">Set of types to load into the serializer</param>
+            <param name="settings">The settings to use for the serializer</param>
+            <remarks>The types will be loaded with the specified settings</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.#ctor(NMF.Serialization.XmlSerializer)">
+            <summary>
+            Creates a new XmlSerializer and copies settings and known types from the given serializer
+            </summary>
+            <param name="parent">An XML serializer to copy settings and known type information from</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializer.Settings">
+            <summary>
+            The settings to be used in the serializer
+            </summary>
+        </member>
+        <member name="P:NMF.Serialization.XmlSerializer.KnownTypes">
+            <summary>
+            The set of types that are known to the serializer
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.String,System.Boolean)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="path">The path for the resulting Xml-file</param>
+            <param name="obj">The object to be serialized</param>
+            <param name="fragment">A value that indicates whether the serializer should write a document definition</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.IO.Stream,System.Boolean)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="stream">The stream for the resulting Xml-code</param>
+            <param name="source">The object to be serialized</param>
+            <param name="fragment">A value that indicates whether the serializer should write a document definition</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.IO.TextWriter)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="writer">The TextWriter to write the Xml-code on</param>
+            <param name="o">The object to be serialized</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.Xml.XmlWriter)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="writer">The XmlWriter to write the Xml-code on</param>
+            <param name="o">The object to be serialized</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.IO.TextWriter,System.Boolean)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="target">The TextWriter to write the Xml-code on</param>
+            <param name="fragment">A value that indicates whether the serializer should write a document definition</param>
+            <param name="o">The object to be serialized</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.Xml.XmlWriter,System.Boolean)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="target">The XmlWriter to write the Xml-code on</param>
+            <param name="fragment">A value that indicates whether the serializer should write a document definition</param>
+            <param name="o">The object to be serialized</param>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.SelectRoot(System.Object,System.Boolean)">
+            <summary>
+            Gets the serialization root element
+            </summary>
+            <param name="graph">The base element that should be serialized</param>
+            <param name="fragment">A value indicating whether only a fragment should be written</param>
+            <returns>The root element for serialization</returns>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Serialize(System.Object,System.Xml.XmlWriter,NMF.Serialization.IPropertySerializationInfo,System.Boolean,NMF.Serialization.XmlIdentificationMode,NMF.Serialization.XmlSerializationContext)">
+            <summary>
+            Serializes the given object
+            </summary>
+            <param name="writer">The XmlWriter to write the Xml-code on</param>
+            <param name="converter">A TypeConverter that might convert the object straight to string. Can be left out.</param>
+            <param name="writeInstance">A value that indicates whether the serializer should write the element definition</param>
+            <param name="o">The object to be serialized</param>
+            <param name="identificationMode">A value indicating whether it is allowed to the serializer to use identifier</param>
+            <remarks>If a converter is provided that is able to convert the object to string and convert the string back to this object, just the string-conversion is printed out</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Deserialize(System.String)">
+            <summary>
+            Deserializes an Xml-representation of an object back to the corresponding object
+            </summary>
+            <param name="path">The path to the Xml file containg the Xml code</param>
+            <returns>The corresponding object</returns>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes an Xml-representation of an object back to the corresponding object
+            </summary>
+            <param name="stream">The stream containg the Xml code</param>
+            <returns>The corresponding object</returns>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Deserialize(System.IO.TextReader)">
+            <summary>
+            Deserializes an Xml-representation of an object back to the corresponding object
+            </summary>
+            <param name="reader">A TextReader containg the Xml code</param>
+            <returns>The corresponding object</returns>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Deserialize(System.Xml.XmlReader)">
+            <summary>
+            Deserializes an Xml-representation of an object back to the corresponding object
+            </summary>
+            <param name="reader">A XmlReader containing the Xml code</param>
+            <returns>The corresponding object</returns>
+            <remarks>The function will deserialize the object at the XmlReaders current position</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlSerializer.Initialize(System.Xml.XmlReader,System.Object,NMF.Serialization.XmlSerializationContext)">
+            <summary>
+            Initializes the given object with the xml code at the current position of the XmlReader
+            </summary>
+            <param name="reader">The XmlReader with the Xml code</param>
+            <param name="o">The object to initialize</param>
+            <returns>The initialized object</returns>
+        </member>
+        <member name="T:NMF.Serialization.XmlStringTypeConverter">
+            <summary>
+            Defines a string converter to prevent non xml valid documents
+            </summary>
+        </member>
+        <member name="T:NMF.Serialization.XmlTypeCollection">
+            <summary>
+            Defines a collection of types known to a XmlSerializer
+            </summary>
+            <remarks>This collection is only a wrapper for an internal collection of type serialization information</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.#ctor(NMF.Serialization.XmlSerializer)">
+            <summary>
+            Creates a new typecollection for the given XmlSerializer
+            </summary>
+            <param name="serializer">The XmlSerializer that will work with this set of types</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlTypeCollection.Serializer">
+            <summary>
+            The corresponding XmlSerializer
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.Add(System.Type)">
+            <summary>
+            Imports the given type to the XmlSerializer
+            </summary>
+            <param name="type">The type to import</param>
+            <remarks>Note that importing a type will also import all the property types of this type, if they aren't already imported</remarks>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.Clear">
+            <summary>
+            Clears the set of types known to the XmlSerializer
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.Contains(System.Type)">
+            <summary>
+            Gets a value that indicates whether the given type is already known to the XmlSerializer
+            </summary>
+            <param name="item">The type to look for</param>
+            <returns>True, if the type is already known to the XmlSerializer, otherwise False</returns>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.CopyTo(System.Type[],System.Int32)">
+            <summary>
+            Copies the known types into an array
+            </summary>
+            <param name="array">The array to copy to</param>
+            <param name="arrayIndex">The destination start index</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlTypeCollection.Count">
+            <summary>
+            Gives the amount of types known to the XmlSerializer
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.Remove(System.Type)">
+            <summary>
+            Removes the given type from the set
+            </summary>
+            <param name="item">The type to remove</param>
+            <returns>A value indicating whether removal was successful</returns>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeCollection.GetEnumerator">
+            <summary>
+            Gets an enumerator to go through the collection
+            </summary>
+            <returns>An IEnumerator object</returns>
+        </member>
+        <member name="T:NMF.Serialization.XmlTypeConverterAttribute">
+            <summary>
+            Attribute to override a TypeConverter for Xml serialization
+            </summary>
+        </member>
+        <member name="M:NMF.Serialization.XmlTypeConverterAttribute.#ctor(System.Type)">
+            <summary>
+            Creates a new XmlTypeConverterAttribute using the provided type
+            </summary>
+            <param name="type">The type to use as TypeConverter</param>
+        </member>
+        <member name="P:NMF.Serialization.XmlTypeConverterAttribute.Type">
+            <summary>
+            The converter type to use in serialization
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,32 @@
+fragment edu2 {
+	s : Student {
+		name : "Peter Parker",
+		studentId : 123
+	}
+	k : Student {
+		name : "Meii Karimi",
+		studentId : 456
+	}
+	g : Group {
+		code : ”PADS221”
+	}	
+	c : EnrolledIn {
+		regNum : 123,
+		ref student : s,
+		ref group : g
+	}
+};
+fragment edu3 {
+	s : Student {
+		name : "Peter Parker",
+		studentId : 789
+	}
+	g : Group {
+		code : ”PADS221”
+	}	
+	c : EnrolledIn {
+		regNum : 123,
+		ref student : s,
+		ref group : g
+	}
+};
