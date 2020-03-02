@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://cpl/1.0" Prefix="CPL" Name="CPL" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="Element" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Element" Name="CPL">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SubAction" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="subActions" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Outgoing" IsOrdered="True" IsUnique="True" Name="outgoing" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Incoming" IsOrdered="True" IsUnique="True" Name="incoming" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//Element" Name="NodeContainer">
+    <References ReferenceType="nmeta:Class #//Node" IsUnique="True" Name="contents" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="SubAction">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="id" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Outgoing" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Incoming" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="NotPresent" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Otherwise" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="SwitchedAddress">
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="is" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="contains" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="subDomainOf" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="SwitchedString">
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="is" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="contains" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="SwitchedLanguage">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="matches" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="SwitchedTime">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="dtstart" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="dtend" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="duration" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="freq" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="until" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="count" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="interval" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="bySecond" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byMinute" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byHour" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byDay" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byMonthDay" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byYearDay" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byWeekNo" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="byMonth" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="wkst" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="bySetPos" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="SwitchedPriority">
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="less" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="greater" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="equal" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Busy" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="NoAnswer" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Redirection" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Failure" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NodeContainer" Name="Default" />
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//Element" Name="Node" />
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//Node" Name="Switch">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//NotPresent" IsOrdered="True" IsUnique="True" Name="notPresent" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Otherwise" IsOrdered="True" IsUnique="True" Name="otherwise" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Switch" Name="AddressSwitch">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SwitchedAddress" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="addresses" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="field" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="subField" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Switch" Name="StringSwitch">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SwitchedString" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="strings" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="field" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Switch" Name="LanguageSwitch">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SwitchedLanguage" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="languages" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Switch" Name="TimeSwitch">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SwitchedTime" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="times" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="tzid" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="tzurl" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Switch" Name="PrioritySwitch">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//SwitchedPriority" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="priorities" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Node #//NodeContainer" Name="Location">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="url" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="priority" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="clear" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Node" Name="SubCall">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="ref" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//Node" Name="Action" />
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//Action" Name="SignallingAction" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//SignallingAction" Name="Proxy">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Busy" IsOrdered="True" IsUnique="True" Name="busy" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//NoAnswer" IsOrdered="True" IsUnique="True" Name="noAnswer" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Redirection" IsOrdered="True" IsUnique="True" Name="redirection" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Failure" IsOrdered="True" IsUnique="True" Name="failure" />
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Default" IsOrdered="True" IsUnique="True" Name="default" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="timeout" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="recurse" />
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="ordering" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//SignallingAction" Name="Redirect">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="permanent" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//SignallingAction" Name="Reject">
+    <Attributes LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="status" />
+    <Attributes Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="reason" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="CPLModel">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Element" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="elements" />
+  </Types>
+</nmeta:Namespace>

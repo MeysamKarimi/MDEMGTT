@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://BibTeX/1.0" Prefix="BibTeX" Name="BibTeX" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" Name="BibTeXFile">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//BibTeXEntry" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="entries" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="Author">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="author" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="BibTeXEntry">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="id" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//BibTeXEntry" Name="AuthoredEntry">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//Author" IsOrdered="True" IsUnique="True" LowerBound="1" UpperBound="-1" Name="authors" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//BibTeXEntry" Name="DatedEntry">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="year" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//BibTeXEntry" Name="TitledEntry">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="title" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//BibTeXEntry" Name="BookTitledEntry">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="booktitle" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AuthoredEntry #//DatedEntry #//TitledEntry" Name="Article">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="journal" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AuthoredEntry #//DatedEntry #//TitledEntry" Name="TechReport" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AuthoredEntry #//TitledEntry" Name="Unpublished">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="note" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//TitledEntry" Name="Manual" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//DatedEntry #//TitledEntry" Name="Proceedings" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Proceedings #//AuthoredEntry #//BookTitledEntry" Name="InProceedings" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//DatedEntry" Name="Booklet" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AuthoredEntry #//DatedEntry #//TitledEntry" Name="Book">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="publisher" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Book #//BookTitledEntry" Name="InCollection" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Book" Name="InBook">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Integer" Name="chapter" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//BibTeXEntry" Name="Misc" />
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//AuthoredEntry #//DatedEntry #//TitledEntry" Name="ThesisEntry">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="school" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//ThesisEntry" Name="PhDThesis" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//ThesisEntry" Name="MasterThesis" />
+</nmeta:Namespace>
