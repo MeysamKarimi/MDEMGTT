@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://class/1.0" Prefix="class" Name="class" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" IsAbstract="True" IdentifierScope="Local" Identifier="#//NamedElt/name" Name="NamedElt">
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//NamedElt" Name="Classifier" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Classifier" Name="DataType" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Classifier" Name="Class">
+    <References ReferenceType="nmeta:Class #//Class" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="super" />
+    <References IsContainment="True" Opposite="#//Attribute/owner" ReferenceType="nmeta:Class #//Attribute" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="attr" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="isAbstract" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NamedElt" Name="Attribute">
+    <References Opposite="#//Class/attr" ReferenceType="nmeta:Class #//Class" IsOrdered="True" IsUnique="True" LowerBound="1" Name="owner" />
+    <References ReferenceType="nmeta:Class #//Classifier" IsOrdered="True" IsUnique="True" LowerBound="1" Name="type" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="multiValued" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="ClassModel">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//NamedElt" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="elems" />
+  </Types>
+</nmeta:Namespace>

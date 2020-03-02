@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D1C55A4B-5F0B-4269-B116-C7BF533DFD21}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MDEMGTT</RootNamespace>
+    <AssemblyName>MDEMGTT</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cs-moea, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\cs-moea.1.0.2\lib\net452\Release\cs-moea.dll</HintPath>
+    </Reference>
+    <Reference Include="cs-statistics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\cs-swarm-intelligence.1.0.1\lib\net452\Release\cs-statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="cs-swarm-intelligence, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\cs-swarm-intelligence.1.0.1\lib\net452\Release\cs-swarm-intelligence.dll</HintPath>
+    </Reference>
+    <Reference Include="DeepCloner, Version=0.10.0.0, Culture=neutral, PublicKeyToken=dc0b95cf99bf4e99, processorArchitecture=MSIL">
+      <HintPath>packages\DeepCloner.0.10.2\lib\net40\DeepCloner.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Collections, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NMF-Collections.2.0.157\lib\net45\NMF.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Expressions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NMF-Expressions.2.0.157\lib\net45\NMF.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Expressions.Linq, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NMF-Expressions.2.0.157\lib\net45\NMF.Expressions.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Models, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NMF-Repository.2.0.157\lib\net45\NMF.Models.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Serialization, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NMF-Repository.2.0.157\lib\net45\NMF.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="NMF.Utilities, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NMF-Utilities.2.0.157\lib\net45\NMF.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TypeSupport, Version=1.0.79.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\TypeSupport.1.0.79\lib\net45\TypeSupport.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\NSGAII.cs" />
+    <Compile Include="BibTeXMetaModel\Article.cs" />
+    <Compile Include="BibTeXMetaModel\Author.cs" />
+    <Compile Include="BibTeXMetaModel\AuthoredEntry.cs" />
+    <Compile Include="BibTeXMetaModel\BibTeXEntry.cs" />
+    <Compile Include="BibTeXMetaModel\BibTeXFile.cs" />
+    <Compile Include="BibTeXMetaModel\Book.cs" />
+    <Compile Include="BibTeXMetaModel\Booklet.cs" />
+    <Compile Include="BibTeXMetaModel\BookTitledEntry.cs" />
+    <Compile Include="BibTeXMetaModel\DatedEntry.cs" />
+    <Compile Include="BibTeXMetaModel\IArticle.cs" />
+    <Compile Include="BibTeXMetaModel\IAuthor.cs" />
+    <Compile Include="BibTeXMetaModel\IAuthoredEntry.cs" />
+    <Compile Include="BibTeXMetaModel\IBibTeXEntry.cs" />
+    <Compile Include="BibTeXMetaModel\IBibTeXFile.cs" />
+    <Compile Include="BibTeXMetaModel\IBook.cs" />
+    <Compile Include="BibTeXMetaModel\IBooklet.cs" />
+    <Compile Include="BibTeXMetaModel\IBookTitledEntry.cs" />
+    <Compile Include="BibTeXMetaModel\IDatedEntry.cs" />
+    <Compile Include="BibTeXMetaModel\IInBook.cs" />
+    <Compile Include="BibTeXMetaModel\IInCollection.cs" />
+    <Compile Include="BibTeXMetaModel\IInProceedings.cs" />
+    <Compile Include="BibTeXMetaModel\IManual.cs" />
+    <Compile Include="BibTeXMetaModel\IMasterThesis.cs" />
+    <Compile Include="BibTeXMetaModel\IMisc.cs" />
+    <Compile Include="BibTeXMetaModel\InBook.cs" />
+    <Compile Include="BibTeXMetaModel\InCollection.cs" />
+    <Compile Include="BibTeXMetaModel\InProceedings.cs" />
+    <Compile Include="BibTeXMetaModel\IPhDThesis.cs" />
+    <Compile Include="BibTeXMetaModel\IProceedings.cs" />
+    <Compile Include="BibTeXMetaModel\ITechReport.cs" />
+    <Compile Include="BibTeXMetaModel\IThesisEntry.cs" />
+    <Compile Include="BibTeXMetaModel\ITitledEntry.cs" />
+    <Compile Include="BibTeXMetaModel\IUnpublished.cs" />
+    <Compile Include="BibTeXMetaModel\Manual.cs" />
+    <Compile Include="BibTeXMetaModel\MasterThesis.cs" />
+    <Compile Include="BibTeXMetaModel\Misc.cs" />
+    <Compile Include="BibTeXMetaModel\PhDThesis.cs" />
+    <Compile Include="BibTeXMetaModel\Proceedings.cs" />
+    <Compile Include="BibTeXMetaModel\TechReport.cs" />
+    <Compile Include="BibTeXMetaModel\ThesisEntry.cs" />
+    <Compile Include="BibTeXMetaModel\TitledEntry.cs" />
+    <Compile Include="BibTeXMetaModel\Unpublished.cs" />
+    <Compile Include="ClassMM\Attribute.cs" />
+    <Compile Include="ClassMM\Class.cs" />
+    <Compile Include="ClassMM\ClassAttrCollection.cs" />
+    <Compile Include="ClassMM\Classifier.cs" />
+    <Compile Include="ClassMM\ClassModel.cs" />
+    <Compile Include="ClassMM\DataType.cs" />
+    <Compile Include="ClassMM\IAttribute.cs" />
+    <Compile Include="ClassMM\IClass.cs" />
+    <Compile Include="ClassMM\IClassifier.cs" />
+    <Compile Include="ClassMM\IClassModel.cs" />
+    <Compile Include="ClassMM\IDataType.cs" />
+    <Compile Include="ClassMM\INamedElt.cs" />
+    <Compile Include="ClassMM\NamedElt.cs" />
+    <Compile Include="CPLMetaModel\Action.cs" />
+    <Compile Include="CPLMetaModel\AddressSwitch.cs" />
+    <Compile Include="CPLMetaModel\Busy.cs" />
+    <Compile Include="CPLMetaModel\CPL.cs" />
+    <Compile Include="CPLMetaModel\CPLModel.cs" />
+    <Compile Include="CPLMetaModel\Default.cs" />
+    <Compile Include="CPLMetaModel\Element.cs" />
+    <Compile Include="CPLMetaModel\Failure.cs" />
+    <Compile Include="CPLMetaModel\IAction.cs" />
+    <Compile Include="CPLMetaModel\IAddressSwitch.cs" />
+    <Compile Include="CPLMetaModel\IBusy.cs" />
+    <Compile Include="CPLMetaModel\ICPL.cs" />
+    <Compile Include="CPLMetaModel\ICPLModel.cs" />
+    <Compile Include="CPLMetaModel\IDefault.cs" />
+    <Compile Include="CPLMetaModel\IElement.cs" />
+    <Compile Include="CPLMetaModel\IFailure.cs" />
+    <Compile Include="CPLMetaModel\IIncoming.cs" />
+    <Compile Include="CPLMetaModel\ILanguageSwitch.cs" />
+    <Compile Include="CPLMetaModel\ILocation.cs" />
+    <Compile Include="CPLMetaModel\Incoming.cs" />
+    <Compile Include="CPLMetaModel\INoAnswer.cs" />
+    <Compile Include="CPLMetaModel\INode.cs" />
+    <Compile Include="CPLMetaModel\INodeContainer.cs" />
+    <Compile Include="CPLMetaModel\INotPresent.cs" />
+    <Compile Include="CPLMetaModel\IOtherwise.cs" />
+    <Compile Include="CPLMetaModel\IOutgoing.cs" />
+    <Compile Include="CPLMetaModel\IPrioritySwitch.cs" />
+    <Compile Include="CPLMetaModel\IProxy.cs" />
+    <Compile Include="CPLMetaModel\IRedirect.cs" />
+    <Compile Include="CPLMetaModel\IRedirection.cs" />
+    <Compile Include="CPLMetaModel\IReject.cs" />
+    <Compile Include="CPLMetaModel\ISignallingAction.cs" />
+    <Compile Include="CPLMetaModel\IStringSwitch.cs" />
+    <Compile Include="CPLMetaModel\ISubAction.cs" />
+    <Compile Include="CPLMetaModel\ISubCall.cs" />
+    <Compile Include="CPLMetaModel\ISwitch.cs" />
+    <Compile Include="CPLMetaModel\ISwitchedAddress.cs" />
+    <Compile Include="CPLMetaModel\ISwitchedLanguage.cs" />
+    <Compile Include="CPLMetaModel\ISwitchedPriority.cs" />
+    <Compile Include="CPLMetaModel\ISwitchedString.cs" />
+    <Compile Include="CPLMetaModel\ISwitchedTime.cs" />
+    <Compile Include="CPLMetaModel\ITimeSwitch.cs" />
+    <Compile Include="CPLMetaModel\LanguageSwitch.cs" />
+    <Compile Include="CPLMetaModel\Location.cs" />
+    <Compile Include="CPLMetaModel\NoAnswer.cs" />
+    <Compile Include="CPLMetaModel\Node.cs" />
+    <Compile Include="CPLMetaModel\NodeContainer.cs" />
+    <Compile Include="CPLMetaModel\NotPresent.cs" />
+    <Compile Include="CPLMetaModel\Otherwise.cs" />
+    <Compile Include="CPLMetaModel\Outgoing.cs" />
+    <Compile Include="CPLMetaModel\PrioritySwitch.cs" />
+    <Compile Include="CPLMetaModel\Proxy.cs" />
+    <Compile Include="CPLMetaModel\Redirect.cs" />
+    <Compile Include="CPLMetaModel\Redirection.cs" />
+    <Compile Include="CPLMetaModel\Reject.cs" />
+    <Compile Include="CPLMetaModel\SignallingAction.cs" />
+    <Compile Include="CPLMetaModel\StringSwitch.cs" />
+    <Compile Include="CPLMetaModel\SubAction.cs" />
+    <Compile Include="CPLMetaModel\SubCall.cs" />
+    <Compile Include="CPLMetaModel\Switch.cs" />
+    <Compile Include="CPLMetaModel\SwitchedAddress.cs" />
+    <Compile Include="CPLMetaModel\SwitchedLanguage.cs" />
+    <Compile Include="CPLMetaModel\SwitchedPriority.cs" />
+    <Compile Include="CPLMetaModel\SwitchedString.cs" />
+    <Compile Include="CPLMetaModel\SwitchedTime.cs" />
+    <Compile Include="CPLMetaModel\TimeSwitch.cs" />
+    <Compile Include="Fragments\IFragmentElemet.cs" />
+    <Compile Include="Fragments\Student.cs" />
+    <Compile Include="GrafcetMetaModel\Connection.cs" />
+    <Compile Include="GrafcetMetaModel\Element.cs" />
+    <Compile Include="GrafcetMetaModel\Grafcet.cs" />
+    <Compile Include="GrafcetMetaModel\GrafcetConnectionsCollection.cs" />
+    <Compile Include="GrafcetMetaModel\GrafcetElementsCollection.cs" />
+    <Compile Include="GrafcetMetaModel\IConnection.cs" />
+    <Compile Include="GrafcetMetaModel\IElement.cs" />
+    <Compile Include="GrafcetMetaModel\IGrafcet.cs" />
+    <Compile Include="GrafcetMetaModel\ILocatedElement.cs" />
+    <Compile Include="GrafcetMetaModel\INamedElement.cs" />
+    <Compile Include="GrafcetMetaModel\IStep.cs" />
+    <Compile Include="GrafcetMetaModel\IStepToTransition.cs" />
+    <Compile Include="GrafcetMetaModel\ITransition.cs" />
+    <Compile Include="GrafcetMetaModel\ITransitionToStep.cs" />
+    <Compile Include="GrafcetMetaModel\LocatedElement.cs" />
+    <Compile Include="GrafcetMetaModel\NamedElement.cs" />
+    <Compile Include="GrafcetMetaModel\Step.cs" />
+    <Compile Include="GrafcetMetaModel\StepIncomingConnectionsCollection.cs" />
+    <Compile Include="GrafcetMetaModel\StepOutgoingConnectionsCollection.cs" />
+    <Compile Include="GrafcetMetaModel\StepToTransition.cs" />
+    <Compile Include="GrafcetMetaModel\Transition.cs" />
+    <Compile Include="GrafcetMetaModel\TransitionIncomingConnectionsCollection.cs" />
+    <Compile Include="GrafcetMetaModel\TransitionOutgoingConnectionsCollection.cs" />
+    <Compile Include="GrafcetMetaModel\TransitionToStep.cs" />
+    <Compile Include="HSMMetaModel\AbstractState.cs" />
+    <Compile Include="HSMMetaModel\CompositeState.cs" />
+    <Compile Include="HSMMetaModel\CompositeStateStatesCollection.cs" />
+    <Compile Include="HSMMetaModel\IAbstractState.cs" />
+    <Compile Include="HSMMetaModel\ICompositeState.cs" />
+    <Compile Include="HSMMetaModel\IInitialState.cs" />
+    <Compile Include="HSMMetaModel\InitialState.cs" />
+    <Compile Include="HSMMetaModel\IRegularState.cs" />
+    <Compile Include="HSMMetaModel\IRoot.cs" />
+    <Compile Include="HSMMetaModel\IStateMachine.cs" />
+    <Compile Include="HSMMetaModel\ITransition.cs" />
+    <Compile Include="HSMMetaModel\RegularState.cs" />
+    <Compile Include="HSMMetaModel\Root.cs" />
+    <Compile Include="HSMMetaModel\StateMachine.cs" />
+    <Compile Include="HSMMetaModel\StateMachineStatesCollection.cs" />
+    <Compile Include="HSMMetaModel\StateMachineTransitionsCollection.cs" />
+    <Compile Include="HSMMetaModel\Transition.cs" />
+    <Compile Include="MetaModels\Attribute.cs" />
+    <Compile Include="MetaModels\Class.cs" />
+    <Compile Include="MetaModels\ClassEncapsulatesCollection.cs" />
+    <Compile Include="MetaModels\ClassModel.cs" />
+    <Compile Include="MetaModels\Feature.cs" />
+    <Compile Include="MetaModels\IAttribute.cs" />
+    <Compile Include="MetaModels\IClass.cs" />
+    <Compile Include="MetaModels\IClassModel.cs" />
+    <Compile Include="MetaModels\IFeature.cs" />
+    <Compile Include="MetaModels\IMethod.cs" />
+    <Compile Include="MetaModels\INamedElement.cs" />
+    <Compile Include="MetaModels\Method.cs" />
+    <Compile Include="MetaModels\NamedElement.cs" />
+    <Compile Include="NSGAII.cs" />
+    <Compile Include="PetriNetMetaModel\Arc.cs" />
+    <Compile Include="PetriNetMetaModel\Element.cs" />
+    <Compile Include="PetriNetMetaModel\IArc.cs" />
+    <Compile Include="PetriNetMetaModel\IElement.cs" />
+    <Compile Include="PetriNetMetaModel\ILocatedElement.cs" />
+    <Compile Include="PetriNetMetaModel\INamedElement.cs" />
+    <Compile Include="PetriNetMetaModel\IPetriNet.cs" />
+    <Compile Include="PetriNetMetaModel\IPlace.cs" />
+    <Compile Include="PetriNetMetaModel\IPlaceToTransition.cs" />
+    <Compile Include="PetriNetMetaModel\ITransition.cs" />
+    <Compile Include="PetriNetMetaModel\ITransitionToPlace.cs" />
+    <Compile Include="PetriNetMetaModel\LocatedElement.cs" />
+    <Compile Include="PetriNetMetaModel\NamedElement.cs" />
+    <Compile Include="PetriNetMetaModel\PetriNet.cs" />
+    <Compile Include="PetriNetMetaModel\PetriNetArcsCollection.cs" />
+    <Compile Include="PetriNetMetaModel\PetriNetElementsCollection.cs" />
+    <Compile Include="PetriNetMetaModel\Place.cs" />
+    <Compile Include="PetriNetMetaModel\PlaceIncomingArcCollection.cs" />
+    <Compile Include="PetriNetMetaModel\PlaceOutgoingArcCollection.cs" />
+    <Compile Include="PetriNetMetaModel\PlaceToTransition.cs" />
+    <Compile Include="PetriNetMetaModel\Transition.cs" />
+    <Compile Include="PetriNetMetaModel\TransitionIncomingArcCollection.cs" />
+    <Compile Include="PetriNetMetaModel\TransitionOutgoingArcCollection.cs" />
+    <Compile Include="PetriNetMetaModel\TransitionToPlace.cs" />
+    <Compile Include="Problems\CRAProblem.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EmbeddedResource Include="architectureCRA.nmf" />
+    <EmbeddedResource Include="BibTeX.nmf" />
+    <EmbeddedResource Include="CPL.nmf" />
+    <EmbeddedResource Include="Class.nmf" />
+    <EmbeddedResource Include="HSM.nmf" />
+    <EmbeddedResource Include="Grafcet.nmf" />
+    <None Include="Inputs\F1.xmi" />
+    <None Include="Inputs\F10.xmi" />
+    <None Include="Inputs\F11.xmi" />
+    <None Include="Inputs\F12.xmi" />
+    <None Include="Inputs\F13.xmi" />
+    <None Include="Inputs\F14.xmi" />
+    <None Include="Inputs\F2.xmi" />
+    <None Include="Inputs\F3.xmi" />
+    <None Include="Inputs\F4.xmi" />
+    <None Include="Inputs\F5.xmi" />
+    <None Include="Inputs\F6.xmi" />
+    <None Include="Inputs\F7.xmi" />
+    <None Include="Inputs\F8.xmi" />
+    <None Include="Inputs\F9.xmi" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="PetriNet.nmf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fragments.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

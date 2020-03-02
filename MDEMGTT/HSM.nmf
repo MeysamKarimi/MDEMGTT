@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://hsm/1.0" Prefix="hsm" Name="hsm" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" IdentifierScope="Local" Identifier="#//StateMachine/name" Name="StateMachine">
+    <References IsContainment="True" Opposite="#//Transition/stateMachine" ReferenceType="nmeta:Class #//Transition" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="transitions" />
+    <References IsContainment="True" Opposite="#//AbstractState/stateMachine" ReferenceType="nmeta:Class #//AbstractState" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="states" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="Transition">
+    <References Opposite="#//StateMachine/transitions" ReferenceType="nmeta:Class #//StateMachine" IsOrdered="True" IsUnique="True" LowerBound="1" Name="stateMachine" />
+    <References ReferenceType="nmeta:Class #//AbstractState" IsOrdered="True" IsUnique="True" LowerBound="1" Name="source" />
+    <References ReferenceType="nmeta:Class #//AbstractState" IsOrdered="True" IsUnique="True" LowerBound="1" Name="target" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="label" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" IdentifierScope="Local" Identifier="#//AbstractState/name" Name="AbstractState">
+    <References Opposite="#//StateMachine/states" ReferenceType="nmeta:Class #//StateMachine" IsOrdered="True" IsUnique="True" LowerBound="1" Name="stateMachine" />
+    <References Opposite="#//CompositeState/states" ReferenceType="nmeta:Class #//CompositeState" IsOrdered="True" IsUnique="True" Name="compositeStates" />
+    <Attributes IsOrdered="True" IsUnique="True" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AbstractState" Name="InitialState" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AbstractState" Name="RegularState" />
+  <Types xsi:type="nmeta:Class" BaseTypes="#//AbstractState" Name="CompositeState">
+    <References Opposite="#//AbstractState/compositeStates" ReferenceType="nmeta:Class #//AbstractState" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="states" />
+  </Types>
+  <Types xsi:type="nmeta:Class" Name="Root">
+    <References IsContainment="True" ReferenceType="nmeta:Class #//StateMachine" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="statemachines" />
+  </Types>
+</nmeta:Namespace>

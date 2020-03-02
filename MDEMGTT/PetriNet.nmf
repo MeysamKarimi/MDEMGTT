@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://petrinet/1.0" Prefix="petriNet" Name="petriNet" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="LocatedElement">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="location" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" IdentifierScope="Local" BaseTypes="#//LocatedElement" Identifier="#//NamedElement/name" Name="NamedElement">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NamedElement" Name="PetriNet">
+    <References IsContainment="True" Opposite="#//Element/net" ReferenceType="nmeta:Class #//Element" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="elements" />
+    <References IsContainment="True" Opposite="#//Arc/net" ReferenceType="nmeta:Class #//Arc" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="arcs" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//NamedElement" Name="Element">
+    <References Opposite="#//PetriNet/elements" ReferenceType="nmeta:Class #//PetriNet" IsUnique="True" LowerBound="1" Name="net" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Element" Name="Place">
+    <References Opposite="#//TransitionToPlace/to" ReferenceType="nmeta:Class #//TransitionToPlace" IsUnique="True" UpperBound="-1" Name="incomingArc" />
+    <References Opposite="#//PlaceToTransition/from" ReferenceType="nmeta:Class #//PlaceToTransition" IsUnique="True" UpperBound="-1" Name="outgoingArc" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Element" Name="Transition">
+    <References Opposite="#//PlaceToTransition/to" ReferenceType="nmeta:Class #//PlaceToTransition" IsUnique="True" LowerBound="1" UpperBound="-1" Name="incomingArc" />
+    <References Opposite="#//TransitionToPlace/from" ReferenceType="nmeta:Class #//TransitionToPlace" IsUnique="True" LowerBound="1" UpperBound="-1" Name="outgoingArc" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//NamedElement" Name="Arc">
+    <References Opposite="#//PetriNet/arcs" ReferenceType="nmeta:Class #//PetriNet" IsUnique="True" LowerBound="1" Name="net" />
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Integer" Name="weight" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Arc" Name="PlaceToTransition">
+    <References Opposite="#//Place/outgoingArc" ReferenceType="nmeta:Class #//Place" IsUnique="True" LowerBound="1" Name="from" />
+    <References Opposite="#//Transition/incomingArc" ReferenceType="nmeta:Class #//Transition" IsUnique="True" LowerBound="1" Name="to" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Arc" Name="TransitionToPlace">
+    <References Opposite="#//Transition/outgoingArc" ReferenceType="nmeta:Class #//Transition" IsUnique="True" LowerBound="1" Name="from" />
+    <References Opposite="#//Place/incomingArc" ReferenceType="nmeta:Class #//Place" IsUnique="True" LowerBound="1" Name="to" />
+  </Types>
+</nmeta:Namespace>
