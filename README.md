@@ -1,7 +1,7 @@
 # MDEMGTT
 
 This project is about input test case generation for model transformation testing in the field of Model-Driven Software Engineering. 
-This is an implementation of a submitted paper in ECMFA 2020 titled "Test case generation for model transformation testing: a multi-objective approach".
+This is an implementation of a submitted paper in **ECMFA 2020** titled ***Test case generation for model transformation testing: a multi-objective approach***.
 
 ## Getting Started
 
@@ -10,10 +10,10 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 For running the program, you need to install/have following prerequisites:
-	1- .Net Framework 4.5.2 or higher
-	2- Microsoft Visual Studio or any preferred IDE for .net projects.
-	3- ```.Net Modelling Framework (NMF)``` Package. Find more about NMF package [here](https://github.com/NMFCode/NMF).
-	4- A meta-model that has been created in ```Ecore``` for testing purpose. The generated models conform the given meta-model.
+1. *.Net Framework 4.5.2* or higher
+2. *Microsoft Visual Studio* or any preferred IDE for.net projects.
+3. *.Net Modelling Framework (NMF)* Package. Find more about NMF package [here](https://github.com/NMFCode/NMF).
+4. A meta-model that has been created in **Ecore** for testing purpose. The generated models conform the given meta-model.
 
 ### Installing
 
