@@ -25,18 +25,18 @@ To install the project, you need to do following steps:
 	PM> Install-Package NMF-Basics -Version 2.0.157 
 	```	
 4. Convert your input Ecore meta-model to NMF meta-model. For doing this:	
-   4-1. Copy ```Ecore``` meta-model to root of the MDEMGTT folder in the solution.
-   4-2. Run the following command in NuGet Package Manager Console:
+   1. Copy ```Ecore``` meta-model to root of the MDEMGTT folder in the solution.
+   2. Run the following command in NuGet Package Manager Console:
 		```
 		PM> Ecore2Code -f -n MDEMGTT.Metamodels -m PetriNet.nmf -o Metamodels\PetriNets PetriNet.ecore
 		```	
-   4-2-3. Include generated NMF meta-model in Solution in VS and make it as ```Embedded Resource```.
-   4-2-4. Include  generated NMF meta-model classes in you Solution in VS.		
-   4-2-5. Open ```MDEMGTT\Properties\AssemblyInfo.cs``` file and add append following line:
+   3. Include generated NMF meta-model in Solution in VS and make it as ```Embedded Resource```.
+   4. Include  generated NMF meta-model classes in you Solution in VS.		
+   5. Open ```MDEMGTT\Properties\AssemblyInfo.cs``` file and add append following line:
 	```
 	[assembly: ModelMetadata("http://petrinet/1.0", "MDEMGTT.PetriNet.nmf")]
 	```
-	** Please note that**, ```PetriNet``` is an example. Replace it with your input meta-model.
+	**Please note that**, ```PetriNet``` is an example. Replace it with your input meta-model.
 5. Create a folder with name ```Output``` in bin/Debug folder and make three empty folders in that folder:
 	```
 	1- MMFragments //generated meta-model fragments save here
@@ -52,7 +52,7 @@ Just run the program and select one of the meta-models and your algorithm. In th
 ### Break down into end to end tests
 
 The generated models in ``` Output\GeneratedModels``` are in ```NMF``` file format and can be easily using other projects.
-However, I am working hard to generate ``XMI``` extension because it is a well-known file format when using ```Ecore``` models.
+However, I am working hard to generate ```XMI``` extension because it is a well-known file format when using ```Ecore``` models.
 
 ## Contributing
 
