@@ -1,4 +1,4 @@
-# MDEMGTT
+# Model Generation for model transformation testing using NSGA-II (MDEMGTT)
 
 This project is about input test case generation for model transformation testing in the field of Model-Driven Software Engineering. 
 This is an implementation of a submitted paper in **ECMFA 2020** titled ***Test case generation for model transformation testing: a multi-objective approach***.
