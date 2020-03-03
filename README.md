@@ -18,32 +18,32 @@ For running the program, you need to install/have following prerequisites:
 ### Installing
 
 To install the project, you need to do following steps:
-	1. Download the source code from github repository [here](https://github.com/MeysamKarimi/MDEMGTT).
-	2. Open it in your preferred IDE. I will explain rest of steps in Visual Studio 2019.
-	3. Install .NMF Modelling Framework via Solution NuGet Package Manager or via NuGet Package Manager Console by following command. You can take a look at NMF configuration [here](https://www.nuget.org/packages/NMF-Basics/). It can be easily installed via NuGet.
+1. Download the source code from github repository [here](https://github.com/MeysamKarimi/MDEMGTT).
+2. Open it in your preferred IDE. I will explain rest of steps in Visual Studio 2019.
+3. Install .NMF Modelling Framework via Solution NuGet Package Manager or via NuGet Package Manager Console by following command. You can take a look at NMF configuration [here](https://www.nuget.org/packages/NMF-Basics/). It can be easily installed via NuGet.
 	```
 	PM> Install-Package NMF-Basics -Version 2.0.157 
 	```	
-	4. Convert your input Ecore meta-model to NMF meta-model. For doing this:	
-	   4-1. Copy ```Ecore``` meta-model to root of the MDEMGTT folder in the solution.
-	   4-2. Run the following command in NuGet Package Manager Console:
+4. Convert your input Ecore meta-model to NMF meta-model. For doing this:	
+   4-1. Copy ```Ecore``` meta-model to root of the MDEMGTT folder in the solution.
+   4-2. Run the following command in NuGet Package Manager Console:
 		```
 		PM> Ecore2Code -f -n MDEMGTT.Metamodels -m PetriNet.nmf -o Metamodels\PetriNets PetriNet.ecore
 		```	
-	   4-2-3. Include generated NMF meta-model in Solution in VS and make it as ```Embedded Resource```.
-	   4-2-4. Include  generated NMF meta-model classes in you Solution in VS.		
-	   4-2-5. Open ```MDEMGTT\Properties\AssemblyInfo.cs``` file and add append following line:
-			```
-			[assembly: ModelMetadata("http://petrinet/1.0", "MDEMGTT.PetriNet.nmf")]
-			```
-			** Please note that**, ```PetriNet``` is an example. Replace it with your input meta-model.
-	5. Create a folder with name ```Output``` in bin/Debug folder and make three empty folders in that folder:
-		```
-		1- MMFragments //generated meta-model fragments save here
-		2- MFragments //generated model fragments save here
-		3- GeneratedModels //final generated models save here
-		```
-	6. Build the solution. You should get ```Build Successfully``` message.
+   4-2-3. Include generated NMF meta-model in Solution in VS and make it as ```Embedded Resource```.
+   4-2-4. Include  generated NMF meta-model classes in you Solution in VS.		
+   4-2-5. Open ```MDEMGTT\Properties\AssemblyInfo.cs``` file and add append following line:
+	```
+	[assembly: ModelMetadata("http://petrinet/1.0", "MDEMGTT.PetriNet.nmf")]
+	```
+	** Please note that**, ```PetriNet``` is an example. Replace it with your input meta-model.
+5. Create a folder with name ```Output``` in bin/Debug folder and make three empty folders in that folder:
+	```
+	1- MMFragments //generated meta-model fragments save here
+	2- MFragments //generated model fragments save here
+	3- GeneratedModels //final generated models save here
+	```
+6. Build the solution. You should get ```Build Successfully``` message.
 
 ## Running the tests
 
