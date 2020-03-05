@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<nmeta:Namespace xmi:version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Uri="http://grafcet/1.0" Prefix="grafcet" Name="grafcet" xmlns:xmi="http://www.omg.org/XMI" xmlns:nmeta="http://nmf.codeplex.com/nmeta/">
+  <Types xsi:type="nmeta:Class" IsAbstract="True" Name="LocatedElement">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="location" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" IdentifierScope="Local" BaseTypes="#//LocatedElement" Identifier="#//NamedElement/name" Name="NamedElement">
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="name" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//NamedElement" Name="Grafcet">
+    <References IsContainment="True" Opposite="#//Element/grafcet" ReferenceType="nmeta:Class #//Element" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="elements" />
+    <References IsContainment="True" Opposite="#//Connection/grafcet" ReferenceType="nmeta:Class #//Connection" IsOrdered="True" IsUnique="True" UpperBound="-1" Name="connections" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//NamedElement" Name="Element">
+    <References Opposite="#//Grafcet/elements" ReferenceType="nmeta:Class #//Grafcet" IsUnique="True" LowerBound="1" Name="grafcet" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Element" Name="Step">
+    <References Opposite="#//TransitionToStep/to" ReferenceType="nmeta:Class #//TransitionToStep" IsUnique="True" UpperBound="-1" Name="incomingConnections" />
+    <References Opposite="#//StepToTransition/from" ReferenceType="nmeta:Class #//StepToTransition" IsUnique="True" UpperBound="-1" Name="outgoingConnections" />
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="isInitial" />
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//Boolean" Name="isActive" />
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="action" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Element" Name="Transition">
+    <References Opposite="#//StepToTransition/to" ReferenceType="nmeta:Class #//StepToTransition" IsUnique="True" UpperBound="-1" Name="incomingConnections" />
+    <References Opposite="#//TransitionToStep/from" ReferenceType="nmeta:Class #//TransitionToStep" IsUnique="True" UpperBound="-1" Name="outgoingConnections" />
+    <Attributes IsUnique="True" LowerBound="1" Type="nmeta:PrimitiveType http://nmf.codeplex.com/nmeta/#//String" Name="condition" />
+  </Types>
+  <Types xsi:type="nmeta:Class" IsAbstract="True" BaseTypes="#//NamedElement" Name="Connection">
+    <References Opposite="#//Grafcet/connections" ReferenceType="nmeta:Class #//Grafcet" IsUnique="True" LowerBound="1" Name="grafcet" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Connection" Name="StepToTransition">
+    <References Opposite="#//Step/outgoingConnections" ReferenceType="nmeta:Class #//Step" IsUnique="True" LowerBound="1" Name="from" />
+    <References Opposite="#//Transition/incomingConnections" ReferenceType="nmeta:Class #//Transition" IsUnique="True" LowerBound="1" Name="to" />
+  </Types>
+  <Types xsi:type="nmeta:Class" BaseTypes="#//Connection" Name="TransitionToStep">
+    <References Opposite="#//Transition/outgoingConnections" ReferenceType="nmeta:Class #//Transition" IsUnique="True" LowerBound="1" Name="from" />
+    <References Opposite="#//Step/incomingConnections" ReferenceType="nmeta:Class #//Step" IsUnique="True" LowerBound="1" Name="to" />
+  </Types>
+</nmeta:Namespace>
