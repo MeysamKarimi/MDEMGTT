@@ -32,9 +32,9 @@ namespace MOEA.AnalyzerGUI
         public enum AlgorithmType
         {
             NSGAII,
-            HybridGame,
-            HAPMOEA,
-            GDE3
+            //HybridGame,
+            //HAPMOEA,
+            //GDE3
         }
 
         public enum ProblemType
