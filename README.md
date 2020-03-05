@@ -51,8 +51,8 @@ Just run the program and select one of the meta-models and your algorithm. In th
 
 ### Break down into end to end tests
 
-The generated models in ``` Output\GeneratedModels``` are in ```NMF``` file format and can be easily using other projects.
-However, I am working hard to generate ```XMI``` extension because it is a well-known file format when using ```Ecore``` models.
+The generated models in ``` Output\GeneratedModels``` were in ```NMF``` file format which could be easily using other projects.
+However, I have just changed it recently to generate files with ```XMI``` extension as it is a well-known file format when using ```Ecore``` models.
 
 ## Contributing
 
